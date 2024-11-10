@@ -89,19 +89,6 @@ pipeline
         }
         
         
-         stage('Publish Extent Report'){
-            steps{
-                     publishHTML([allowMissing: false,
-                                  alwaysLinkToLastBuild: false, 
-                                  keepAll: false, 
-                                  reportDir: 'reports', 
-                                  reportFiles: 'TestExecutionReport.html', 
-                                  reportName: 'API HTML Sanity Extent Report', 
-                                  reportTitles: ''])
-            }
-        }
-        
-        
         stage("Deploy to PROD"){
             steps{
                 echo("deploy to PROD")
