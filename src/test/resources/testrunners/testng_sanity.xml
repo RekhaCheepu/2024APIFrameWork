@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="API Regression Suite" verbose="3">
+	<listeners>
+		<listener class-name="com.qa.api.listners.ExtentReportListener" />
+		
+	</listeners>
+
+	<test name="GET User Test">
+
+		<classes>
+			<class name="com.qa.api.tests.GetUserTest" />
+		</classes>
+	</test>
+	<test name="Create User Test">
+
+		<classes>
+			<class name="com.qa.api.tests.CreateUserTest" />
+		</classes>
+	</test>
+	
+	<test name="Contacts API Test">
+
+		<classes>
+			<class name="com.qa.contacts.api.tests.ContactsAPITest" />
+		</classes>
+	</test>
+	<test name="Fake store API Test">
+
+		<classes>
+			<class name="com.qa.products.api.tests.ProductsAPITest" />
+		</classes>
+	</test>
+	<test name="Basic Auth Test">
+
+		<classes>
+			<class name="com.qa.api.auth.tests.BasicAuthTest" />
+		</classes>
+	</test>
+	
+</suite>

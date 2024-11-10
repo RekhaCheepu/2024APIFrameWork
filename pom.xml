@@ -12,14 +12,14 @@
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		 <suiteXmlFile>src/test/resources/testrunners/testng_regression.xml</suiteXmlFile>
 	</properties>
-	
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
@@ -97,19 +97,21 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.0.8</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.wiremock</groupId>
 			<artifactId>wiremock</artifactId>
 			<version>3.9.2</version>
-
 		</dependency>
 
 
+
 	</dependencies>
+
 	<build>
 
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -130,15 +132,52 @@
 					<forkCount>3</forkCount>
 					<reuseForks>true</reuseForks>
 					<suiteXmlFiles>
-						<!--
-						<suiteXmlFile>src/test/resources/testrunners/test_regression.xml</suiteXmlFile> -->
+						<!-- <suiteXmlFile>src/test/resources/testrunners/testng_regression.xml</suiteXmlFile> -->
 						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 
-
 		</plugins>
 
+
+
 	</build>
+
+	<reporting>
+		<plugins>
+			<!-- Site Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.12.1</version>
+			</plugin>
+
+			<!-- JavaDoc Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.6.3</version>
+				<configuration>
+					<show>private</show>  <!-- show all classes and members -->
+				</configuration>
+			</plugin>
+
+			<!-- Project Info Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.5.0</version>
+			</plugin>
+
+			<!-- Test Results Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.2.5</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+
 </project>
