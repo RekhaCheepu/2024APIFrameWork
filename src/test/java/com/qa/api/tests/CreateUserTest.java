@@ -63,13 +63,13 @@ public Object[][]getUserData(){
 	}
 	
 	
-	@Test(enabled = false)
-	public void createUserUsingJsonFileTest() {
-		File userJsonFile = new File("./src/test/resources/jsons/user.json");
-		Response response = restClient.post(BASE_URL_GOREST ,"/public/v2/users", userJsonFile, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
-		Assert.assertEquals(response.getStatusCode(), 201);
-		
-	}
+//	@Test(enabled = false)
+//	public void createUserUsingJsonFileTest() {
+//		File userJsonFile = new File("./src/test/resources/jsons/user.json");
+//		Response response = restClient.post(BASE_URL_GOREST ,"/public/v2/users", userJsonFile, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+//		Assert.assertEquals(response.getStatusCode(), 201);
+//		
+//	}
 	
 	
 
