@@ -20,7 +20,7 @@ pipeline
             steps
             {
                  git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
             {
@@ -50,7 +50,7 @@ pipeline
             def dockerCommand = """
                 docker run --name apitesting${BUILD_NUMBER} \
                 -v "${WORKSPACE}/reports:/app/reports" \
-                naveenkhunteta/apiregressiontest:latest \
+                rekhacheepu/apiregressiontest:latest \
                 /bin/bash -c "mvn test -Dsurefire.suiteXmlFiles=${suiteXmlFilePath}"
             """
             
@@ -59,10 +59,10 @@ pipeline
             if (exitCode != 0) {
                 currentBuild.result = 'FAILURE'
             }
-            sh "docker start apitesting${BUILD_NUMBER}"
-            sh "docker cp apitesting${BUILD_NUMBER}:/app/reports/TestExecutionReport.html ${WORKSPACE}/reports"
-            sh "docker cp apitesting${BUILD_NUMBER}:/app/allure-results ${WORKSPACE}/allure-results"
-            sh "docker rm -f apitesting${BUILD_NUMBER}"
+            bat "docker start apitesting${BUILD_NUMBER}"
+            bat "docker cp apitesting${BUILD_NUMBER}:/app/reports/TestExecutionReport.html ${WORKSPACE}/reports"
+            bat "docker cp apitesting${BUILD_NUMBER}:/app/allure-results ${WORKSPACE}/allure-results"
+            bat "docker rm -f apitesting${BUILD_NUMBER}"
         }
     }
 }
