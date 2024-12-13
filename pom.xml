@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>July2024APIFWSeries</groupId>
-	<artifactId>July2024APIFWSeries</artifactId>
+	<groupId>July2024APIFrameWorkSeries</groupId>
+	<artifactId>July2024APIFrameWorkSeries</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>July2024APIFWSeries</name>
+	<name>July2024APIFrameWorkSeries</name>
 	<url>http://www.example.com</url>
 
 	<properties>
